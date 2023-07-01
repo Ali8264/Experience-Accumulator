@@ -1,3 +1,4 @@
+
 import "./home.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Room,Star } from "@material-ui/icons";
@@ -80,7 +81,7 @@ setPins(res.data)
     };
 
     try {
-      const res = await axios.post("/pins", newPin);
+      const res = await axios.post("http://localhost:8080/api/pins", newPin);
       setPins([...pins, res.data]);
       setNewPlace(null);
     } catch (err) {
@@ -103,6 +104,7 @@ setPins(res.data)
           height: "100vh",
           borderRadius: "15px",
           border: "2px solid green",
+          
           
         }}
         initialViewState={{

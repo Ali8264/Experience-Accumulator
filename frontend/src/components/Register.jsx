@@ -17,11 +17,11 @@ import axios from "axios";
     password:passwordRef.current.value,
    };
    try{
-     await axios.post("/users/register",newUser);
+     await axios.post("http://localhost:8080/api/users/register",newUser);
      setError(false);
      setSuccess(true);
-    
    }catch(err){
+    console.log(err);
     setError(true);
    }
     }
@@ -29,10 +29,10 @@ import axios from "axios";
     <div className="registerContainer"> 
       <div className="logo">
         <Room/>
-        MAPMARKER
+        Share Your Experience
       </div>
       <form onSubmit={handleSubmit}>
-        <input style={{marginTop:30}} type="text" placeholder="username" ref={nameRef}/>
+        <input type="text" placeholder="username" ref={nameRef}/>
         <input type="email" placeholder="email" ref={emailRef}/>
         <input type="password" placeholder="password" ref={passwordRef}/>
           <button className="registerBtn">Register</button>
@@ -43,7 +43,7 @@ import axios from "axios";
           <span className="failure">Something went wrong!</span>
           )}
           </form>
-           <Cancel className=  "registerCancel"onClick={()=>setShowRegister(false)} />
+           <Cancel className="registerCancel"onClick={()=>setShowRegister(false)} />
     </div>
   )
 }

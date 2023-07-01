@@ -10,7 +10,7 @@ dotenv.config();
 
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:3000","http://map-pinning-app.onrender.com"]
+    origin: ["http://localhost:3000","http://map-pinning-app.onrender.com","*"]
 }));
 
 mongoose.connect(process.env.URL,{useNewUrlParser:true,useUnifiedTopology:true})
